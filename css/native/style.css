@@ -1,0 +1,139 @@
+/* variables */
+:root {
+  --primary-bg: #232f3b;
+  /* --primary-bg: rgb(34, 37, 37); */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(216, 232, 240);
+}
+
+#container {
+  margin: auto;
+  width: 95vw;
+}
+nav {
+  position: sticky;
+  top: 0px;
+  height: 6rem;
+  display: flex;
+  overflow: hidden;
+  background-color: var(--primary-bg);
+  -webkit-box-shadow: 3px 3px 8px 6px rgb(190, 190, 190); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 8px 6px rgb(190, 190, 190); /* Firefox 3.5 - 3.6 */
+  box-shadow: 3px 3px 8px 6px rgb(190, 190, 190);
+}
+
+/* ################# */
+/*      NAVBAR       */
+/* ################# */
+
+/* 1. */
+/* ### StickyBits:- when navbar scrolled ###*/
+.nav.js-is-sticky.js-is-sticky--change {
+  height: 4rem;
+  font-size: 0.8rem;
+}
+.nav.js-is-sticky.js-is-sticky--change img {
+  height: 2.5rem;
+}
+
+/* #####  NAV - LEFT  ##### */
+.nav__left {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.nav__left__logo {
+  display: inline-block;
+}
+.nav__left__logo img {
+  height: 3rem;
+  margin-left: 2rem;
+}
+
+.nav__left__title {
+  /* display: flex; */
+  /* justify-content: start; */
+  /* margin: auto; */
+  /* text-align: center; */
+  width: 13rem;
+  margin-left: 2rem;
+  color: aliceblue;
+}
+
+/* #####  NAV - RIGHT  ##### */
+.nav__right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.nav__right__wrapper {
+  margin-right: 2rem;
+}
+
+.nav__right__wrapper ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+}
+.nav__right__wrapper ul li {
+  margin: 0 1vw;
+  font-size: 1.5rem;
+}
+.nav__right__wrapper ul li a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.nav__right__wrapper ul li a:hover {
+  color: rgb(111, 148, 180);
+}
+
+/* ################# */
+/*    Media Queries     */
+/* ################# */
+
+@media (max-width: 24cm) {
+  .nav__right__wrapper ul li a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 20cm) {
+  /* @Media: Container */
+  #container {
+    width: 100vw;
+  }
+  /* @Media : Sticky Bits */
+  .nav.js-is-sticky.js-is-sticky--change img {
+    height: 2.5rem;
+  }
+
+  /* @Media: nav-left */
+  .nav__left {
+    font-size: 0.8rem;
+  }
+  .nav__left__title {
+    width: 10rem;
+    margin-left: 1rem;
+  }
+  .nav__left__logo img {
+    height: 2.5rem;
+    margin-left: 1rem;
+  }
+
+  /* @Media: nav-right */
+  .nav__right {
+    display: none;
+  }
+}

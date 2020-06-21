@@ -1,0 +1,227 @@
+/* body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+} */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  top: 0vh;
+  margin: auto;
+  height: 70vh; /* Change Height of the Slider by this, to change use 'vh' or '%' values, same height as max-height of images*/
+
+  background-color: rgb(38, 45, 46);
+  width: 100%; /*If you change this width, also change width of ".swipe-wrap" to the same value, and do hard refresh to reflect changes*/
+}
+
+.swipe-wrap {
+  overflow: hidden;
+  /* position: relative; */
+  /* top: 10vh; */
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  width: 100%; /*use same value as the width of ".swipe" */
+  height: 100%; /*use vh values to change*/
+  text-align: center;
+  align-items: center;
+}
+
+.swipe-wrap > div {
+  /* width: 100%;  */ /*use vh values to change*/
+  /* float: left; */
+  height: 100%; /*CHANGE BACKGROUND HEIGHT*/
+  overflow: hidden;
+  position: relative; /*Let it be relative*/
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.swipe-wrap > div > img {
+  max-width: 100%;
+  max-height: 70vh; /*to restrict vertical images height*/ /*Alternatively, to make images touch top and bottom, use same vaule of "max-height" as the height of "swipe"*/
+  object-fit: cover;
+  height: 65vh; /* remember to unset height in media query */
+}
+#prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1vw;
+  width: 50px;
+  background: none;
+  padding: 10px;
+  border-radius: 100px;
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+  z-index: 5;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#prev:focus {
+  outline: 0;
+}
+#prev:hover {
+  position: absolute;
+  top: 50%;
+  width: 55px;
+  left: calc(1vw - 2.5px);
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1vw;
+  width: 50px;
+  background: none;
+  padding: 10px;
+  border-radius: 100px;
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+  z-index: 5;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#next:focus {
+  outline: 0;
+}
+#next:hover {
+  position: absolute;
+  width: 55px;
+  right: calc(1vw - 2.5px);
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* List Buttons */
+.dots > li {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(255, 255, 255, 0.7);
+  border-radius: 10px;
+  list-style: none;
+  margin: 7.5px;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+}
+.dots > li:hover {
+  border: 1px solid rgba(212, 7, 7, 0.8);
+  width: 13px;
+  height: 13px;
+  margin: 6px;
+}
+.dots {
+  position: absolute;
+  bottom: 5vh;
+  display: flex;
+  width: 100%;
+  height: 10px;
+  justify-content: center;
+  flex-direction: row;
+  padding: 0;
+}
+.dots .active {
+  background-color: rgba(212, 7, 7, 0.8);
+  position: relative;
+  top: 0.5px;
+  margin: 6px;
+  width: 13px;
+  height: 13px;
+  transform: translateY(-1px);
+}
+
+.bullet_list {
+  position: relative;
+  width: 100%;
+  height: 10px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 15cm) {
+  .swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 33vh; /*Change Height of the Slider by this, to change use 'vh' values, same height as max-height of images*/
+    min-height: 4cm; /*same value as min-height of images*/
+    background-color: rgb(38, 45, 46);
+    width: 100%; /*If you change this width, also change width of ".swipe-wrap" to the same value*/
+  }
+
+  .swipe-wrap {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    /* height: 100%; */
+    width: 100%;
+    /* height: 20vh; */
+    text-align: center;
+    align-items: center;
+    /* justify-content: center; */
+  }
+
+  .swipe-wrap > div {
+    /* float: left; */
+    width: 100%;
+    height: 100%; /* Background height , Use 'vh' values for custom height, '%' values. */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .swipe-wrap > div > img {
+    max-width: 100%;
+    max-height: 33vh; /* to constrain vertical images*/
+    min-height: 4cm;
+    object-fit: cover;
+    height: unset;
+  }
+
+  #prev,
+  #next {
+    display: none;
+  }
+
+  /* List Buttons */
+  .dots > li {
+    width: 8px;
+    height: 8px;
+  }
+  .dots .active {
+    background-color: rgba(212, 7, 7, 0.8);
+    width: 10px;
+    height: 10px;
+    transform: translate(-1px, -1px);
+  }
+}

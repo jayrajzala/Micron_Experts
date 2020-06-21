@@ -5,27 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Micron Experts</title>
     <link rel="shortcut icon" href="./images/logo/micron_experts_non_transparent.svg" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/native/style.css" />
+    <link rel="stylesheet" href="./css/native/slider.css" />
   </head>
   <body>
     <div id="container">
       <nav class="nav">
-    <div class="nav__left">
-        <div class="nav__left--logoContainer">
-          <img src="./images/logo/micron_experts_non_transparent.svg" alt="logo" srcset="" />
-        </div>
-        <div class="nav__left__title">
-          <h1>Micron Experts</h1>
-          <div class="nav__left__title--tagline">
-            <p>Micron experts tag line</p>
+        <div class="nav__left">
+          <div class="nav__left__logo">
+            <img src="./images/logo/micron_experts_non_transparent.svg" alt="logo" srcset="" />
+          </div>
+          <div class="nav__left__title">
+            <h1>Micron Experts</h1>
+            <div class="nav__left__title--tagline">
+              <p>&nbsp;Micron experts tag line</p>
+            </div>
           </div>
         </div>
-    </div>
-    <div class="nav__right">
-        
-    </div>
+
+        <div class="nav__right">
+          <div class="nav__right__wrapper">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
-      
-    <!-- <img src="./micron_experts.svg" alt="" srcset="" /> -->
+      <div id="mySwipe" class="swipe">
+        <div class="swipe-wrap">
+          <!-- <div><img src="./images/slider/img1.jpg" alt="img1" /></div> -->
+          <div><img src="./images/slider/img2.jpg" alt="img2" /></div>
+          <div><img src="./images/slider/img3.jpg" alt="img3" /></div>
+          <div><img src="./images/slider/img4.jpg" alt="img4" /></div>
+        </div>
+        <!-- List Buttons -->
+        <div id="list" class="bullet_list"></div>
+
+        <!-- Next - Previous Button for swiper js -->
+        <button onclick="mySwipe.prev()" class="btn btn-primary" id="prev">
+          <img src="./images/slider/left-arrow.svg" alt="&lt;" />
+        </button>
+        <button onclick="mySwipe.next()" class="btn btn-primary" id="next">
+          <img src="./images/slider/right-arrow.svg" alt="&gt;" />
+        </button>
+      </div>
+    </div>
+    <!-- Container End -->
+    <script src="./js/external/stickyBits.js"></script>
+    <script src="./js/external/swipe.min.js"></script>
+    <script src="./js/native/main.js"></script>
   </body>
 </html>
