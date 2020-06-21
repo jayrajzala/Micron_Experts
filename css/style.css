@@ -1,0 +1,52 @@
+/* variables */
+:root {
+  /* --primary-bg: darkslategrey; */
+  --primary-bg: rgb(34, 37, 37);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  background-color: rgb(216, 232, 240);
+}
+
+#container {
+  margin: auto;
+  width: 95vw;
+  height: 3000px;
+}
+
+.nav__left {
+  background-color: var(--primary-bg);
+  position: sticky;
+  top: 0px;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  -webkit-box-shadow: 3px 3px 8px 6px rgb(190, 190, 190); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 8px 6px rgb(190, 190, 190); /* Firefox 3.5 - 3.6 */
+  box-shadow: 3px 3px 8px 6px rgb(190, 190, 190);
+}
+
+.nav__left--logoContainer {
+  display: inline-block;
+}
+.nav__left--logoContainer img {
+  height: 3rem;
+  margin-left: 2rem;
+}
+
+.nav__left__title {
+  /* display: flex; */
+  /* justify-content: start; */
+  /* margin: auto; */
+  /* text-align: center; */
+  margin-left: 2rem;
+  color: aliceblue;
+}
