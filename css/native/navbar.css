@@ -1,3 +1,4 @@
+@import url('../../fonts/poppins/poppins.css');
 /* variables */
 :root {
   --primary-bg: #232f3b;
@@ -11,7 +12,7 @@
 }
 body {
   margin: 0em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
   background-color: rgb(216, 232, 240);
 }
 
@@ -103,13 +104,13 @@ nav {
 /*    Media Queries     */
 /* ################# */
 
-@media (max-width: 24cm) {
+@media (max-width: 27cm) {
   .nav__right__wrapper ul li a {
     font-size: 1.2rem;
   }
 }
 
-@media (max-width: 20cm) {
+@media (max-width: 21cm) {
   /* @Media: Container */
   #container {
     width: 100vw;
