@@ -1,0 +1,8 @@
+/* variables */
+:root {
+  --primary-bg: #232f3b;
+  /* --primary-bg: rgb(34, 37, 37); */
+  --font-primary: rgb(140, 181, 194);
+  --link-hover: rgb(182, 223, 144);
+  --sub-menu-bg: #191919;
+}
