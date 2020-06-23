@@ -259,14 +259,14 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
   color: var(--link-hover);
 }
 
-.nav__right__menu li:hover > .nav__right__menu--sub-menu {
+.nav__right:not(.current) .nav__right__menu li:hover > .nav__right__menu--sub-menu {
   top: 5rem;
   opacity: 1;
   visibility: visible;
 }
 
-.nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
-  top: 0;
+.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
+  top: 0rem;
   transition: all 250ms;
 }
 .nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
@@ -353,7 +353,7 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
     top: 1.5rem;
   }
 
-  .nav__right__menu li:hover > .nav__right__menu--sub-menu {
+  .nav__right.current .nav__right__menu li.clicked > .nav__right__menu--sub-menu {
     opacity: 1;
     visibility: visible;
     max-height: initial;
@@ -391,9 +391,6 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
     -webkit-touch-callout: none;
   }
 
-  /* .nav__right__burger-menu{
-
-  } */
   .nav__right__menu-close {
     display: none;
   }
@@ -411,6 +408,10 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
   .nav__right.current .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
     left: calc(-100% - 1.2rem);
   }
+
+  /* .nav__right__menu--sub-menu .nav__right__menu--sub-menu {
+    transition: 0s 1000s;
+  } */
 }
 
 @media (orientation: landscape) and (max-height: 12cm) {
