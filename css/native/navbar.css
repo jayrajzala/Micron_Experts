@@ -10,7 +10,10 @@
 body {
   margin: 0em;
   font-family: 'Poppins', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-  background-color: rgb(216, 232, 240);
+  background-color: var(--body-bg);
+}
+body.noscroll {
+  overflow-y: hidden;
 }
 
 #container {
@@ -18,6 +21,15 @@ body {
   width: 95vw;
   height: 3000px;
 }
+
+/* ################# */
+/* #### NAV-BAR ####*/
+/* ################# */
+
+:root {
+  --sub-menu-offset: -40%;
+}
+
 nav {
   position: sticky;
   top: 0px;
@@ -40,18 +52,17 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
 /*      NAVBAR       */
 /* ################# */
 
-/* 1. */
 /* ### StickyBits:- when navbar scrolled ###*/
 .nav.js-is-sticky.js-is-sticky--change {
   height: 3.3rem;
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
 }
 
 .nav.js-is-sticky.js-is-sticky--change > .nav__left > .nav__left__title > .nav__left__title--tagline {
   display: none;
 }
 
-.nav.js-is-sticky.js-is-sticky--change > .nav__right > .nav__right__wrapper > .nav__right__menu > li {
+.nav.js-is-sticky.js-is-sticky--change > .nav__right:not(.current) .nav__right__menu > li {
   font-size: 1.3rem;
 }
 
@@ -78,9 +89,9 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
   margin-left: 2rem;
   transition: transform 250ms ease-in-out;
   cursor: pointer;
-  /* z-index: 5100; */
-  /* -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none; */
+  z-index: 51;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 .nav__left__logo img[class='nav__left__logo__img']:hover {
   transform: rotate(-540deg);
@@ -127,7 +138,6 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
   font-size: 1.5rem;
 } */
 .nav__right__wrapper a {
-  height: 100%;
   text-decoration: none;
   /* color: aliceblue; */
 }
@@ -136,6 +146,16 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
   color: rgb(111, 148, 180);
 } */
 
+/* Down Arrow size and Color (set color in svg file itself) */
+.nav__right__menu > li > a > img.nav__right__down-arrow {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.nav__right__menu li img.nav__right__down-arrow {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
 .menu-icons {
   color: aliceblue;
   position: absolute;
@@ -143,13 +163,8 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
   right: 2rem;
   transform: translateY(-50%);
   cursor: pointer;
-  z-index: 50;
+  z-index: 100;
   display: none;
-}
-
-figure {
-  /* width: 100%;
-  height: 5rem; */
 }
 
 .nav__right__menu {
@@ -162,28 +177,31 @@ figure {
 }
 
 .nav__right__menu li {
-  line-height: 3rem;
   position: relative;
   font-size: 1rem;
 }
 .nav__right__menu > li {
   font-size: 1.5rem;
+  line-height: 3rem;
 }
 
 .nav__right__menu--sub-menu {
-  width: 20rem;
+  width: 23vw;
+  /* white-space: nowrap; */
   display: block;
   position: absolute;
   border-top: 3px solid var(--link-hover);
   background-color: var(--sub-menu-bg);
   z-index: 50;
   top: 10rem;
-  transform: translateX(-50%);
   transition: top 500ms ease;
   opacity: 0;
   visibility: hidden;
-  margin-top: 5px;
 }
+.nav__right:not(.current) .nav__right__menu--sub-menu {
+  transform: translateX(var(--sub-menu-offset));
+}
+
 .nav__right__menu--sub-menu::before {
   content: '';
   position: absolute;
@@ -199,6 +217,9 @@ figure {
   width: 100%;
   height: 3rem;
 }
+.nav__right__menu--sub-menu > li > a {
+  line-height: 1rem;
+}
 
 .nav__right__menu--sub-menu .nav__right__menu--sub-menu {
   border-top: none;
@@ -208,7 +229,7 @@ figure {
 
   top: 0;
   left: -100%;
-  transition: all 0;
+  transition: all 0s;
 }
 
 .nav__right__menu--sub-menu .nav__right__menu--sub-menu::before {
@@ -228,7 +249,7 @@ figure {
 .nav__right__menu a {
   display: block;
   color: var(--font-primary);
-  padding: 0 1rem;
+  padding: 1rem 1rem;
 
   text-transform: uppercase;
   transition: color 500ms;
@@ -239,15 +260,17 @@ figure {
 }
 
 .nav__right__menu li:hover > .nav__right__menu--sub-menu {
-  top: 4rem;
+  top: 5rem;
   opacity: 1;
   visibility: visible;
 }
 
 .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
-  left: calc(-50% - 1.2rem);
   top: 0;
   transition: all 250ms;
+}
+.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
+  left: calc(-100% - var(--sub-menu-offset) - 1.2rem);
 }
 
 /* ################# */
@@ -255,18 +278,33 @@ figure {
 /* ################# */
 
 @media (max-width: 27cm) {
-  .nav__right__wrapper ul li a {
+  .nav__right__wrapper ul li {
+    font-size: 1.5vw;
+  }
+  .nav__right__wrapper > ul > li {
     font-size: 1.2rem;
+  }
+  .nav.js-is-sticky.js-is-sticky--change .nav__right__wrapper > ul > li a {
+    font-size: 1.1rem;
+  }
+
+  .nav__right__menu--sub-menu a {
+    /* line-height: 1rem; */
+    padding: 1rem 0.5rem;
+  }
+
+  .nav__right__menu--sub-menu {
+    width: 22vw;
   }
 }
 
-@media (max-width: 21cm) {
+@media (max-width: 24cm) {
   /* @Media: Container */
   #container {
     width: 100vw;
   }
   /* @Media : Sticky Bits */
-  .nav.js-is-sticky.js-is-sticky--change img {
+  .nav.js-is-sticky.js-is-sticky--change .nav__left__logo__img {
     height: 2rem;
   }
 
@@ -284,14 +322,111 @@ figure {
   }
 
   /* @Media: nav-right */
-  .nav__right {
+  .nav__right__wrapper ul li {
+    font-size: 1rem;
+  }
+  /* .nav__right__wrapper > ul > li {
+    font-size: 1.2rem;
+  } */
+
+  /* #######*/
+  /* Displaying NavBar Vertically */
+  /* #######*/
+  .nav__right__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     display: none;
+    flex-direction: column;
+    align-items: initial;
+    justify-content: flex-start;
+    background-color: var(--sub-menu-bg);
+    z-index: 60;
+    overflow-y: scroll;
+  }
+
+  .nav__right__menu > li {
+    line-height: 1rem;
+    position: relative;
+    top: 1.5rem;
+  }
+
+  .nav__right__menu li:hover > .nav__right__menu--sub-menu {
+    opacity: 1;
+    visibility: visible;
+    max-height: initial;
+  }
+
+  .nav__right__menu--sub-menu {
+    position: initial;
+    border: 3px solid transparent !important; /* to override the specifivity imposed by (.nav__right__menu--sub-menu.nav__right__menu--sub-menu) which is more specific, but we want all(including children) sub menu border to be none */
+    border-right: none;
+    border-left-color: var(--link-hover) !important; /*without this above important will override this*/
+    margin-left: 1rem;
+    max-height: 0;
+    width: 80vw;
+  }
+  .nav__right__menu--sub-menu::before {
+    display: none;
+  }
+  .nav__right__menu--sub-menu::after {
+    display: none;
+  }
+
+  .nav__right__menu--sub-menu a {
+    padding: 0.5rem 0.5rem;
+  }
+
+  /* Down Arrow size and Color (set color in svg file itself) */
+  .nav__right__menu > li > a > img.nav__right__down-arrow {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .menu-icons {
+    display: block;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  /* .nav__right__burger-menu{
+
+  } */
+  .nav__right__menu-close {
+    display: none;
+  }
+  .nav__right.current .nav__right__menu-close {
+    display: block;
+  }
+  .nav__right.current .nav__right__burger-menu {
+    display: none;
+  }
+
+  .nav__right.current .nav__right__menu {
+    display: flex;
+  }
+
+  .nav__right.current .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
+    left: calc(-100% - 1.2rem);
   }
 }
 
 @media (orientation: landscape) and (max-height: 12cm) {
   nav {
     height: 4rem;
-    position: relative !important;
+    position: relative !important; /* !important -> to override the specificity imposed on nav element by stickyBits */
+  }
+  .menu-icons {
+    position: fixed;
+    top: 2rem;
+    background-color: var(--primary-bg);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
   }
 }
