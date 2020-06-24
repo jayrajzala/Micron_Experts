@@ -13,7 +13,7 @@ html {
   margin: auto;
   height: 70vh; /* Change Height of the Slider by this, to change use 'vh' or '%' values, same height as max-height of images*/
 
-  background-color: rgb(38, 45, 46);
+  background-color: var(--slider-bg);
   width: 100%; /*If you change this width, also change width of ".swipe-wrap" to the same value, and do hard refresh to reflect changes*/
 }
 
