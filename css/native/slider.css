@@ -52,7 +52,7 @@ html {
   max-width: 100%;
   max-height: 70vh; /*to restrict vertical images height*/ /*Alternatively, to make images touch top and bottom, use same vaule of "max-height" as the height of "swipe"*/
   object-fit: cover;
-  height: 65vh; /* remember to unset height in media query */
+  height: 70vh; /* remember to unset height in media query */
 }
 #prev {
   position: absolute;
@@ -64,7 +64,7 @@ html {
   padding: 10px;
   border-radius: 100px;
   border-color: transparent;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 37, 255, 0.2);
   user-select: none;
   z-index: 5;
   cursor: pointer;
@@ -79,7 +79,7 @@ html {
   width: 55px;
   left: calc(1vw - 2.5px);
   border-color: transparent;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 37, 255, 0.4);
 }
 
 #next {
@@ -92,7 +92,7 @@ html {
   padding: 10px;
   border-radius: 100px;
   border-color: transparent;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 37, 255, 0.2);
   user-select: none;
   z-index: 5;
   cursor: pointer;
@@ -106,7 +106,7 @@ html {
   width: 55px;
   right: calc(1vw - 2.5px);
   border-color: transparent;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 37, 255, 0.4);
 }
 
 /* List Buttons */
@@ -148,7 +148,7 @@ html {
 }
 
 .bullet_list {
-  position: relative;
+  /* position: relative; */
   width: 100%;
   height: 10px;
 }

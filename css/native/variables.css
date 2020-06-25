@@ -12,11 +12,17 @@
 
 /* Theme 2 */
 :root {
+  /* Navbar */
   --primary-bg: #00657b;
   --body-bg: aliceblue;
   --font-primary-nav: #8bce3f;
+  /* Nav-Left */
+  --logo-text-header-color: rgb(7, 0, 58);
+  --logo-text-tagline-color: aliceblue;
+  /* Nav Right */
   --link-hover: rgb(182, 223, 144);
-  --logo-text-color: rgb(14, 11, 36);
-  --sub-menu-bg: rgb(14, 11, 36);
+  --sub-menu-bg: #00405a;
+  --sub-menu-font-color: aliceblue;
+  /* Slider */
   --slider-bg: #c6faff;
 }

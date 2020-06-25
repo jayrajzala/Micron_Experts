@@ -101,13 +101,14 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
 .nav__left__title {
   width: 13rem;
   margin-left: 2rem;
-  color: var(--logo-text-color);
+  color: var(--logo-text-header-color);
 }
 .nav__left__title--right {
   color: var(--font-primary-nav);
 }
 .nav__left__title--tagline {
-  font-weight: 900;
+  font-style: italic;
+  color: var(--logo-text-tagline-color);
 }
 
 /* #####  NAV - RIGHT  ##### */
@@ -174,6 +175,23 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
   line-height: 3rem;
 }
 
+.nav__right__menu a {
+  display: block;
+  color: var(--font-primary-nav);
+  padding: 1rem 1rem;
+  transition: color 400ms;
+}
+.nav__right:not(.current) .nav__right__menu a {
+  text-align: center;
+}
+.nav__right__menu > li > a {
+  text-transform: uppercase;
+}
+
+.nav__right__menu a:hover {
+  color: var(--link-hover);
+}
+
 .nav__right__menu--sub-menu {
   width: 23vw;
   /* white-space: nowrap; */
@@ -187,8 +205,31 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
   opacity: 0;
   visibility: hidden;
 }
+
+.nav__right__menu--sub-menu a {
+  color: var(--sub-menu-font-color);
+  font-weight: 300;
+}
+.nav__right__menu--sub-menu a:hover {
+  color: var(--font-primary-nav);
+}
+
 .nav__right:not(.current) .nav__right__menu--sub-menu {
   transform: translateX(var(--sub-menu-offset));
+}
+
+.nav__right:not(.current) .nav__right__menu li:hover > .nav__right__menu--sub-menu {
+  top: 5rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
+  top: 0rem;
+  transition: all 250ms;
+}
+.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
+  left: calc(-100% - var(--sub-menu-offset) - 1.2rem);
 }
 
 .nav__right__menu--sub-menu::before {
@@ -233,34 +274,6 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
   right: -2.5rem;
   height: 100%;
   width: 2.5rem;
-}
-
-.nav__right__menu a {
-  display: block;
-  color: var(--font-primary-nav);
-  padding: 1rem 1rem;
-  transition: color 500ms;
-}
-.nav__right__menu > li > a {
-  text-transform: uppercase;
-}
-
-.nav__right__menu a:hover {
-  color: var(--link-hover);
-}
-
-.nav__right:not(.current) .nav__right__menu li:hover > .nav__right__menu--sub-menu {
-  top: 5rem;
-  opacity: 1;
-  visibility: visible;
-}
-
-.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
-  top: 0rem;
-  transition: all 250ms;
-}
-.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
-  left: calc(-100% - var(--sub-menu-offset) - 1.2rem);
 }
 
 /* ################# */
@@ -351,6 +364,9 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
     position: relative;
     top: 1.5rem;
   }
+  .nav__right__menu .nav__right__down-arrow {
+    pointer-events: none;
+  }
 
   .nav__right.current .nav__right__menu li.clicked > .nav__right__menu--sub-menu {
     opacity: 1;
@@ -362,13 +378,14 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
     position: initial;
     border: 3px solid transparent !important; /* to override the specifivity imposed by (.nav__right__menu--sub-menu.nav__right__menu--sub-menu) which is more specific, but we want all(including children) sub menu border to be none */
     border-right: none;
-    border-left-color: var(--link-hover) !important; /*without this above important will override this*/
+    border-left-color: var(--font-primary-nav) !important; /*without this above important will override this*/
     margin-left: 1rem;
     max-height: 0;
     width: 80vw;
   }
   .nav__right__menu--sub-menu::before {
     display: none;
+    color: var(--font-primary-nav);
   }
   .nav__right__menu--sub-menu::after {
     display: none;
