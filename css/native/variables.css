@@ -1,9 +1,22 @@
 /* variables */
-:root {
+
+/* Theme 1 */
+/* :root {
   --primary-bg: rgb(34, 37, 37);
   --body-bg: rgb(216, 232, 240);
   --font-primary-nav: rgb(140, 181, 194);
   --link-hover: rgb(182, 223, 144);
   --sub-menu-bg: #191919;
   --slider-bg: rgb(38, 45, 46);
+} */
+
+/* Theme 2 */
+:root {
+  --primary-bg: #00657b;
+  --body-bg: aliceblue;
+  --font-primary-nav: #8bce3f;
+  --link-hover: rgb(182, 223, 144);
+  --logo-text-color: rgb(14, 11, 36);
+  --sub-menu-bg: rgb(14, 11, 36);
+  --slider-bg: #c6faff;
 }

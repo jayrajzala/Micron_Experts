@@ -10,7 +10,7 @@
 body {
   margin: 0em;
   font-family: 'Poppins', Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--body-bg);
+  background: var(--body-bg);
 }
 body.noscroll {
   overflow-y: hidden;
@@ -18,7 +18,7 @@ body.noscroll {
 
 #container {
   margin: auto;
-  width: 100vw;
+  width: 100%;
   height: 3000px;
 }
 
@@ -43,7 +43,7 @@ nav {
   box-shadow: 0px 0px 8px 0px rgb(190, 190, 190);
 }
 
-nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
+nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img'] {
   transform: rotate(-360deg);
   transition: transform 250ms ease-in-out;
 }
@@ -101,10 +101,13 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
 .nav__left__title {
   width: 13rem;
   margin-left: 2rem;
-  color: aliceblue;
+  color: var(--logo-text-color);
 }
 .nav__left__title--right {
   color: var(--font-primary-nav);
+}
+.nav__left__title--tagline {
+  font-weight: 900;
 }
 
 /* #####  NAV - RIGHT  ##### */
@@ -297,7 +300,7 @@ nav:not(.js-is-sticky--change) > div > div > img[class='nav__left__logo__img'] {
 @media (max-width: 27cm) {
   /* @Media: Container */
   #container {
-    width: 100vw;
+    width: 100%;
   }
   /* @Media : Sticky Bits */
   .nav.js-is-sticky.js-is-sticky--change .nav__left__logo__img {
