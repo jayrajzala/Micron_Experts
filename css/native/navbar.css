@@ -93,7 +93,8 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
-.nav__left__logo img[class='nav__left__logo__img']:hover {
+.nav__left__logo img[class='nav__left__logo__img']:hover,
+.nav__left__logo:focus-within img[class='nav__left__logo__img'] {
   transform: rotate(-540deg);
   transition: transform 200ms ease-in-out;
 }
@@ -218,17 +219,20 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
   transform: translateX(var(--sub-menu-offset));
 }
 
-.nav__right:not(.current) .nav__right__menu li:hover > .nav__right__menu--sub-menu {
+.nav__right:not(.current) .nav__right__menu li:hover > .nav__right__menu--sub-menu,
+.nav__right:not(.current) .nav__right__menu li:focus-within > .nav__right__menu--sub-menu {
   top: 5rem;
   opacity: 1;
   visibility: visible;
 }
 
-.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
+.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu,
+.nav__right:not(.current) .nav__right__menu--sub-menu li:focus-within > .nav__right__menu--sub-menu {
   top: 0rem;
   transition: all 250ms;
 }
-.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu {
+.nav__right:not(.current) .nav__right__menu--sub-menu li:hover > .nav__right__menu--sub-menu,
+.nav__right:not(.current) .nav__right__menu--sub-menu li:focus-within > .nav__right__menu--sub-menu {
   left: calc(-100% - var(--sub-menu-offset) - 1.2rem);
 }
 
@@ -412,6 +416,8 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
   }
   .nav__right.current .nav__right__menu-close {
     display: block;
+    position: relative;
+    right: 1vw;
   }
   .nav__right.current .nav__right__burger-menu {
     display: none;
@@ -430,7 +436,7 @@ nav:not(.js-is-sticky--change) > div > div > a > img[class='nav__left__logo__img
   } */
 }
 
-@media (orientation: landscape) and (max-height: 12cm) {
+@media (orientation: landscape) and (max-height: 12cm) and (max-width: 27cm) {
   nav {
     height: 4rem;
     position: relative !important; /* !important -> to override the specificity imposed on nav element by stickyBits */

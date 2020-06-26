@@ -17,6 +17,8 @@ window.mySwipe = new Swipe(element, {
   disableScroll: false, // prevent touch events from scrolling the page
   stopPropagation: false,
   callback: function (index, elem, dir) {
+    console.log('callback');
+
     var active = document.querySelector('.active');
     var dotList = document.querySelector(`.dot${index}`);
     if (active) {
